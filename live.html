@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云端追思｜张建国先生纪念馆</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #252522;
+    color: #e5d8bd;
+    font-family: "Songti SC", "SimSun", serif;
+    line-height: 1.8;
+}
+
+.container {
+    width: 100%;
+    max-width: 750px;
+    margin: auto;
+    padding: 25px 20px 45px;
+}
+
+.back {
+    display: inline-block;
+    color: #c7b895;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.header {
+    text-align: center;
+    padding: 25px 0;
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #a99a7a;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 29px;
+    font-weight: normal;
+    letter-spacing: 4px;
+}
+
+.subtitle {
+    color: #a99a7a;
+    font-size: 13px;
+    margin-top: 12px;
+    letter-spacing: 2px;
+}
+
+.divider {
+    width: 45px;
+    height: 1px;
+    background: #a99a7a;
+    margin: 25px auto;
+}
+
+.cover {
+    position: relative;
+    height: 300px;
+    border: 1px solid #635b4a;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(20,20,18,0.05),
+            rgba(20,20,18,0.85)
+        ),
+        url("images/乡土摄影.jpg") center/cover no-repeat,
+        #45443d;
+}
+
+.cover-text {
+    position: absolute;
+    bottom: 22px;
+    left: 20px;
+    right: 20px;
+    text-align: center;
+}
+
+.cover-text h2 {
+    font-size: 21px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.cover-text p {
+    font-size: 12px;
+    color: #d0c2a5;
+    margin-top: 8px;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #71664f;
+    padding: 5px 14px;
+    font-size: 12px;
+    margin-top: 18px;
+    color: #d7c7a5;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #bca77b;
+}
+
+.section {
+    padding: 28px 5px;
+    border-bottom: 1px solid #45443d;
+}
+
+.section h3 {
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+}
+
+.section p {
+    font-size: 14px;
+    color: #c1b69f;
+    text-align: justify;
+}
+
+.live-button {
+    display: block;
+    text-align: center;
+    background: #c5b28d;
+    color: #292821;
+    padding: 15px 10px;
+    margin-top: 24px;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 2px;
+    transition: background 0.3s;
+}
+
+.live-button:hover {
+    background: #e0cfad;
+}
+
+.tip {
+    margin-top: 20px;
+    padding: 15px;
+    border-left: 2px solid #8e8062;
+    background: #302f2a;
+    color: #b7aa91;
+    font-size: 12px;
+}
+
+.footer {
+    text-align: center;
+    padding-top: 35px;
+    color: #847b68;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a class="back" href=" ">← 返回纪念馆</a >
+
+    <header class="header">
+        <div class="eyebrow">DIGITAL MEMORIAL</div>
+        <h1>云端追思</h1>
+        <div class="subtitle">让思念跨越山海，让记忆长存心间</div>
+        <div class="divider"></div>
+    </header>
+
+    <div class="cover">
+        <div class="cover-text">
+            <h2>张建国先生纪念追思仪式</h2>
+            <p>以影像寄情，以思念致远</p >
+        </div>
+    </div>
+
+    <div style="text-align:center;">
+        <div class="status">
+            <span class="status-dot"></span>
+            <span id="liveStatus">线上追思入口</span>
+        </div>
+    </div>
+
+    <section class="section">
+        <h3>云端相聚 · 共同追思</h3>
+        <p>
+            张建国先生一生热爱摄影，数十年行走乡野，
+            用镜头记录古村落、民俗节庆、传统手艺与乡村变迁。
+            一张张朴素而真挚的照片，留下了乡土的记忆，
+            也记录着普通人的生活与温情。
+        </p >
+
+        <p style="margin-top:14px;">
+            如今，我们以云端为桥，让身处各地的亲友能够共同参与追思，
+            重温珍贵记忆，传承温暖的家风与人文精神。
+        </p >
+
+        <a
+            class="live-button"
+            id="liveLink"
+            href="https://example.com"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            🎥 进入云端追思直播 →
+        </a >
+
+        <div class="tip">
+            温馨提示：请确认直播时间及平台通知。
+            点击上方按钮后，将跳转至外部直播平台。
+            请在直播平台遵守相关规定，文明参与追思。
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>仪式内容</h3>
+        <p>01　追忆先生生平，回顾人生经历。</p >
+        <p>02　欣赏乡土摄影作品，重温岁月记忆。</p >
+        <p>03　亲友寄语，分享珍贵故事。</p >
+        <p>04　云端献花，以文明方式表达思念。</p >
+        <p>05　传承人文精神，让乡土记忆延续。</p >
+    </section>
+
+    <section class="section">
+        <h3>以影像留住乡土</h3>
+        <p>
+            镜头记录的不只是风景，更是一个时代的生活印记。
+            那些古老村落、传统手艺与平凡人物，
+            因为先生的记录而拥有了被长久记住的可能。
+        </p >
+    </section>
+
+    <footer class="footer">
+        华北人文纪念园 · 数字纪念馆
+        <br>
+        以文明寄托哀思，以记忆延续温情
+    </footer>
+
+</div>
+
+</body>
+</html>

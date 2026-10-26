@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华北人文纪念园</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #304d49;
+    --light: #f6f4ee;
+    --gold: #b39a70;
+    --text: #353a36;
+}
+
+body {
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    height: 76px;
+    padding: 0 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,.95);
+}
+
+.logo {
+    font-family: "SimSun", serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--green);
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 50px 20px;
+    background:
+        linear-gradient(rgba(24,43,39,.22),rgba(24,43,39,.55)),
+        url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+}
+
+.hero-content {
+    max-width: 760px;
+}
+
+.hero h1 {
+    font-family: "SimSun", serif;
+    font-size: clamp(32px,5vw,52px);
+    letter-spacing: 6px;
+    margin-bottom: 22px;
+}
+
+.hero p {
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.hero-buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 32px;
+    border: 1px solid white;
+    border-radius: 3px;
+    transition: .3s;
+}
+
+.button.primary {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    opacity: .85;
+}
+
+section {
+    padding: 75px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-family: "SimSun", serif;
+    font-size: 30px;
+    color: var(--green);
+    font-weight: normal;
+}
+
+.section-title p {
+    color: #85877e;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.intro {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    color: #66685f;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+}
+
+.service-card {
+    background: white;
+    padding: 35px 24px;
+    text-align: center;
+    border: 1px solid #e6e2d8;
+    transition: .3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px #0000000d;
+}
+
+.service-icon {
+    font-size: 32px;
+    color: var(--green);
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: #777970;
+    font-size: 14px;
+}
+
+.service-card a {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--green);
+    border-bottom: 1px solid var(--gold);
+}
+
+.quote {
+    background: #e9ece5;
+    text-align: center;
+}
+
+.quote h2 {
+    font-family: "SimSun", serif;
+    font-size: 27px;
+    font-weight: normal;
+    color: var(--green);
+}
+
+.quote p {
+    margin-top: 15px;
+    color: #777970;
+}
+
+footer {
+    background: var(--green);
+    color: #e9e8df;
+    text-align: center;
+    padding: 35px 20px;
+    font-size: 13px;
+}
+
+footer p + p {
+    margin-top: 8px;
+}
+
+@media(max-width:700px) {
+    header {
+        height: auto;
+        padding: 18px 5%;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    nav {
+        width: 100%;
+        gap: 0;
+        justify-content: space-between;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 480px;
+    }
+
+    .hero h1 {
+        letter-spacing: 3px;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">华北人文纪念园</div>
+
+    <nav>
+        <a href=" ">首页</a >
+        <a href="#about">园区简介</a >
+        <a href="#services">服务项目</a >
+        <a href="cloud-sacrifice.html">云祭扫</a >
+    </nav>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>让生命在记忆中延续</h1>
+
+        <p>尊重生命 · 传承文化 · 绿色安葬</p >
+
+        <div class="hero-buttons">
+            <a href="#about" class="button">了解园区</a >
+            <a href="cloud-sacrifice.html" class="button primary">
+                进入云祭扫
+            </a >
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="section-title">
+        <h2>园区简介</h2>
+        <p>让思念有处安放，让记忆长久留存</p >
+    </div>
+
+    <div class="intro">
+        华北人文纪念园致力于营造庄重、宁静、温暖的纪念空间，
+        提供多样化的祭奠追思服务。
+        园区结合传统人文关怀与数字化纪念方式，
+        让每一份思念得到尊重，让珍贵的人生记忆得以传承。
+    </div>
+</section>
+
+<section id="services">
+    <div class="section-title">
+        <h2>服务项目</h2>
+        <p>以人为本，尊重每一种思念的表达</p >
+    </div>
+
+    <div class="services">
+
+        <article class="service-card">
+            <div class="service-icon">⌂</div>
+            <h3>园区祭扫</h3>
+            <p>在宁静的自然环境中缅怀亲人，寄托思念。</p >
+            <a href="cloud-sacrifice.html">了解更多</a >
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">♧</div>
+            <h3>追思仪式</h3>
+            <p>结合逝者人生经历，提供个性化追思服务。</p >
+            <a href="cloud-sacrifice.html">了解更多</a >
+        </article>
+
+        <article class="service-card">
+            <div class="service-icon">✧</div>
+            <h3>云端纪念</h3>
+            <p>通过数字纪念空间，让远方亲友共同追忆。</p >
+            <a href="cloud-sacrifice.html">进入云祭扫</a >
+        </article>
+
+    </div>
+</section>
+
+<section class="quote">
+    <h2>生命虽有终点，记忆却能长存</h2>
+    <p>以文明的方式追思，以温暖的方式传承。</p >
+</section>
+
+</main>
+
+<footer>
+    <p>华北人文纪念园</p >
+    <p>尊重生命 · 人文关怀 · 绿色纪念</p >
+    <p>本页面为实训项目演示页面</p >
+</footer>
+
+</body>
+</html>
