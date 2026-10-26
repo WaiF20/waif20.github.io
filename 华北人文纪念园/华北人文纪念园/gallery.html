@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>光影画廊 | 张建国先生数字纪念馆</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #292724;
+    color: #e8dfd0;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    padding: 20px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ffffff18;
+}
+
+.logo {
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: #c6a875;
+}
+
+.hero {
+    text-align: center;
+    padding: 55px 20px 30px;
+}
+
+.hero h1 {
+    font-family: "SimSun", serif;
+    font-size: 34px;
+    font-weight: normal;
+}
+
+.hero p {
+    color: #b6aa98;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+}
+
+.filters button {
+    padding: 9px 20px;
+    color: #d8cdbb;
+    background: transparent;
+    border: 1px solid #665644;
+    cursor: pointer;
+}
+
+.filters button.active,
+.filters button:hover {
+    background: #c6a875;
+    color: #292724;
+}
+
+.gallery {
+    padding: 25px 6% 65px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.photo {
+    background: #38332d;
+    border: 1px solid #ffffff10;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.photo:hover {
+    transform: translateY(-4px);
+    border-color: #c6a875;
+}
+
+.photo img {
+    width: 100%;
+    height: 260px;
+    display: block;
+    object-fit: cover;
+    filter: sepia(.22) saturate(.82);
+    cursor: pointer;
+    transition: .5s;
+}
+
+.photo:hover img {
+    filter: sepia(0) saturate(1);
+    transform: scale(1.025);
+}
+
+.photo-info {
+    padding: 17px 18px 20px;
+}
+
+.photo-info h3 {
+    font-family: "SimSun", serif;
+    font-weight: normal;
+    font-size: 19px;
+}
+
+.photo-info p {
+    color: #b6aa98;
+    font-size: 13px;
+    margin-top: 8px;
+    line-height: 1.8;
+}
+
+.note {
+    text-align: center;
+    padding: 0 20px 35px;
+    color: #a69a89;
+    font-size: 12px;
+}
+
+footer {
+    padding: 28px;
+    text-align: center;
+    border-top: 1px solid #ffffff15;
+    color: #b6aa98;
+    font-size: 12px;
+}
+
+/* 图片放大弹窗 */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: rgba(0,0,0,.92);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+}
+
+.modal img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.modal p {
+    margin-top: 12px;
+    color: #e8dfd0;
+}
+
+.modal-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.modal button {
+    padding: 10px 20px;
+    border: 1px solid #c6a875;
+    color: #e8dfd0;
+    background: transparent;
+    cursor: pointer;
+}
+
+@media(max-width:800px) {
+    .gallery {
+        grid-template-columns: repeat(2,1fr);
+        padding: 20px 5% 45px;
+        gap: 13px;
+    }
+
+    .photo img {
+        height: 190px;
+    }
+}
+
+@media(max-width:520px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo img {
+        height: 250px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">张建国先生 · 光影画廊</div>
+
+    <nav>
+        <a href=" ">纪念馆首页</a >
+        <a href="biography.html">岁月留痕</a >
+        <a href="messages.html">指尖寄思</a >
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>光影画廊</h1>
+    <p>以镜头记录乡土，以影像珍藏岁月</p >
+</section>
+
+<div class="filters">
+    <button class="active" data-filter="all">全部作品</button>
+    <button data-filter="village">古村旧巷</button>
+    <button data-filter="people">岁月乡邻</button>
+    <button data-filter="craft">匠心传承</button>
+    <button data-filter="nature">乡野四时</button>
+</div>
+
+<main class="gallery" id="gallery">
+
+    <article class="photo" data-category="village">
+        <img src="img/IMG_20261025_201744.png">
+            山水村落
+        <div class="photo-info">
+            <h3>古村旧巷</h3>
+            <p>古村、老屋与乡土记忆的主题创作。</p >
+        </div>
+    </article>
+
+    <article class="photo" data-category="people">
+        <img src="img/IMG_20261025_201835.png"/> 
+            人物肖像
+        <div class="photo-info">
+            <h3>岁月乡邻</h3>
+            <p>以人物纪实为主题，关注普通人的生活。</p >
+        </div>
+    </article>
+
+    <article class="photo" data-category="craft">
+        <img src="img/IMG_20261025_201923.png"/>
+             手工创作
+        <div class="photo-info">
+            <h3>匠心传承</h3>
+            <p>记录专注的双手与传统技艺的传承。</p >
+        </div>
+    </article>
+
+    <article class="photo" data-category="nature">
+        <img src="img/IMG_20261025_201942.png"
+             alt="自然风景示例" loading="lazy">
+        <div class="photo-info">
+            <h3>乡野四时</h3>
+            <p>田野、山川与自然流转的季节。</p >
+        </div>
+    </article>
+
+    <article class="photo" data-category="village">
+        <img src="img/IMG_20261025_201807.png"
+             alt="传统建筑示例" loading="lazy">
+        <div class="photo-info">
+            <h3>旧日院落</h3>
+            <p>在建筑与空间中寻找岁月的痕迹。</p >
+        </div>
+    </article>
+
+    <article class="photo" data-category="nature">
+        <img src="img/IMG_20261025_202010.png"
+             alt="山林风景示例" loading="lazy">
+        <div class="photo-info">
+            <h3>山野寻迹</h3>
+            <p>以自然为伴，在行走中记录四季。</p >
+        </div>
+    </article>
+
+</main>
+
+<p class="note">
+    图片均为临时示例素材，不代表张建国先生的真实摄影作品。
+</p >
+
+<footer>
+    以镜为念，以影留乡 · 数字纪念馆演示页面
+</footer>
+
+<div class="modal" id="modal" role="dialog"
+     aria-modal="true" aria-label="照片查看器">
+
+    <div class="modal-content">
+
+        < img id="modalImage" src="" alt="放大照片">
+
+        <p id="modalCaption"></p >
+
+        <div class="modal-controls">
+            <button id="prevBtn">上一张</button>
+            <button id="closeBtn">关闭</button>
+            <button id="nextBtn">下一张</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const photos = [...document.querySelectorAll(".photo")];
+const filterButtons = [...document.querySelectorAll("[data-filter]")];
+
+let visiblePhotos = photos.slice();
+let currentIndex = 0;
+
+const modal = document.getElementById("modal");
+const modalImage = document.getElementById("modalImage");
+const modalCaption = document.getElementById("modalCaption");
+
+function getCaption(photo) {
+    return photo.querySelector("h3").textContent;
+}
+
+function refreshVisiblePhotos() {
+    visiblePhotos = photos.filter(photo =>
+        photo.style.display !== "none"
+    );
+}
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        filterButtons.forEach(item =>
+            item.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        const category = button.dataset.filter;
+
+        photos.forEach(photo => {
+            photo.style.display =
+                category === "all" ||
+                photo.dataset.category === category
+                ? ""
+                : "none";
+        });
+
+        refreshVisiblePhotos();
+    });
+});
+
+function openPhoto(photo) {
+    refreshVisiblePhotos();
+
+    currentIndex = visiblePhotos.indexOf(photo);
+
+    if (currentIndex < 0) return;
+
+    showPhoto();
+    modal.classList.add("show");
+    document.getElementById("closeBtn").focus();
+}
+
+function showPhoto() {
+    const photo = visiblePhotos[currentIndex];
+    const image = photo.querySelector("img");
+
+    modalImage.src = image.src;
+    modalImage.alt = image.alt;
+    modalCaption.textContent = getCaption(photo);
+}
+
+function changePhoto(step) {
+    if (!visiblePhotos.length) return;
+
+    currentIndex =
+        (currentIndex + step + visiblePhotos.length)
+        % visiblePhotos.length;
+
+    showPhoto();
+}
+
+photos.forEach(photo => {
+    photo.querySelector("img").addEventListener("click", () => {
+        openPhoto(photo);
+    });
+});
+
+document.getElementById("prevBtn").onclick = () => {
+    changePhoto(-1);
+};
+
+document.getElementById("nextBtn").onclick = () => {
+    changePhoto(1);
+};
+
+document.getElementById("closeBtn").onclick = () => {
+    modal.classList.remove("show");
+};
+
+modal.addEventListener("click", event => {
+    if (event.target === modal) {
+        modal.classList.remove("show");
+    }
+});
+
+document.addEventListener("keydown", event => {
+    if (!modal.classList.contains("show")) return;
+
+    if (event.key === "Escape") {
+        modal.classList.remove("show");
+    }
+
+    if (event.key === "ArrowLeft") {
+        changePhoto(-1);
+    }
+
+    if (event.key === "ArrowRight") {
+        changePhoto(1);
+    }
+});
+</script>
+
+</body>
+</html>

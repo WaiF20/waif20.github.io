@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云祭扫 | 华北人文纪念园</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    background: #f4f1e9;
+    color: #304d49;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    height: 70px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+}
+
+.logo {
+    font-size: 21px;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    font-size: 14px;
+}
+
+.hero {
+    min-height: calc(100vh - 130px);
+    padding: 70px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+    linear-gradient(rgba(244,241,233,.48),
+                    rgba(244,241,233,.78)),
+    url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=80")
+    center/cover;
+}
+
+.card {
+    width: 100%;
+    max-width: 480px;
+    padding: 48px 35px;
+    background: rgba(255,255,255,.91);
+    border: 1px solid #ddd7c9;
+    box-shadow: 0 15px 50px #33333312;
+}
+
+.subtitle {
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #9a8a6a;
+}
+
+h1 {
+    font-family: "SimSun", serif;
+    font-size: 31px;
+    font-weight: normal;
+    margin: 18px 0;
+}
+
+.description {
+    color: #7c8178;
+    font-size: 14px;
+    line-height: 2;
+}
+
+input {
+    width: 100%;
+    height: 49px;
+    padding: 0 15px;
+    margin-top: 28px;
+    border: 1px solid #d7d4ca;
+    background: #fff;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #304d49;
+}
+
+button {
+    width: 100%;
+    height: 49px;
+    margin-top: 15px;
+    background: #304d49;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .3s;
+}
+
+button:hover {
+    background: #42645d;
+}
+
+#message {
+    min-height: 25px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #9c6657;
+}
+
+.tip {
+    margin-top: 22px;
+    color: #85867e;
+    font-size: 12px;
+    line-height: 2;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 10px;
+    font-size: 12px;
+    color: #85867e;
+}
+
+@media(max-width:600px) {
+    header {
+        height: auto;
+        padding: 17px 5%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 12px;
+    }
+
+    .card {
+        padding: 38px 23px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">华北人文纪念园</div>
+
+    <nav>
+        <a href=" ">首页</a >
+        <a href="index.html#about">园区简介</a >
+        <a href="cloud-sacrifice.html">云祭扫</a >
+    </nav>
+</header>
+
+<main class="hero">
+
+    <div class="card">
+
+        <div class="subtitle">DIGITAL MEMORIAL</div>
+
+        <h1>云端纪念 · 让思念延续</h1>
+
+        <p class="description">
+            每一份思念都值得珍藏。<br>
+            输入专属纪念密钥，开启亲人的数字纪念空间。
+        </p >
+
+        <form id="accessForm">
+            <input
+                id="memorialKey"
+                type="text"
+                placeholder="请输入纪念密钥"
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">开启纪念堂</button>
+        </form>
+
+        <div id="message" role="status"></div>
+
+        <p class="tip">
+            纪念密钥由园区工作人员在办理业务时提供。<br>
+            如有疑问，请联系园区工作人员。
+        </p >
+
+    </div>
+
+</main>
+
+<footer>
+    华北人文纪念园 · 云端纪念服务<br>
+    本页面为实训项目演示页面
+</footer>
+
+<script>
+const form = document.getElementById("accessForm");
+const input = document.getElementById("memorialKey");
+const message = document.getElementById("message");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const key = input.value.trim().toUpperCase();
+
+    if (key === "ZGJ1945" || key === "1234") {
+        sessionStorage.setItem("memorialDemoAccess", "granted");
+        window.location.href = "memorial.html";
+    } else {
+        message.textContent = "密钥不正确，请检查后重新输入。";
+        input.focus();
+    }
+});
+</script>
+
+</body>
+</html>

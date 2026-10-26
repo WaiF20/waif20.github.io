@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张建国先生数字纪念馆</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #292724;
+    --panel: #38332d;
+    --gold: #c6a875;
+    --cream: #e8dfd0;
+    --muted: #b6aa98;
+}
+
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--cream);
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    min-height: 72px;
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ffffff15;
+}
+
+.logo {
+    font-family: "SimSun", serif;
+    letter-spacing: 2px;
+    font-size: 19px;
+}
+
+nav {
+    display: flex;
+    gap: 23px;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+    padding: 70px 10%;
+    background:
+        radial-gradient(ellipse at top right, #564330 0%, transparent 60%);
+}
+
+.portrait {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    filter: sepia(.2) contrast(.95);
+    border: 8px solid #ffffff0b;
+    box-shadow: 0 20px 50px #00000040;
+}
+
+.eyebrow {
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+h1 {
+    font-family: "SimSun", serif;
+    font-size: clamp(30px,4vw,45px);
+    font-weight: normal;
+    margin: 20px 0;
+}
+
+.dates {
+    color: var(--gold);
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+
+.intro {
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 2.2;
+}
+
+.section {
+    padding: 55px 9%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title h2 {
+    font-family: "SimSun", serif;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.section-title p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.feature {
+    padding: 35px 20px;
+    background: var(--panel);
+    border: 1px solid #c6a87530;
+    text-align: center;
+    transition: .3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.feature .icon {
+    font-size: 35px;
+    color: var(--gold);
+}
+
+.feature h3 {
+    margin: 15px 0 8px;
+    font-family: "SimSun", serif;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.feature p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.tribute {
+    background: #342e27;
+    text-align: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.action-button {
+    min-width: 135px;
+    padding: 12px 20px;
+    color: var(--cream);
+    border: 1px solid var(--gold);
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.action-button:hover {
+    background: var(--gold);
+    color: #292724;
+}
+
+#feedback {
+    margin-top: 18px;
+    min-height: 25px;
+    color: var(--gold);
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 15px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+@media(max-width:750px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 35px 7%;
+        gap: 25px;
+    }
+
+    .portrait {
+        height: 330px;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .section {
+        padding: 45px 6%;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">华北人文纪念园 · 数字纪念馆</div>
+
+    <nav>
+        <a href=" ">园区首页</a >
+        <a href="gallery.html">光影画廊</a >
+        <a href="biography.html">岁月留痕</a >
+        <a href="messages.html">指尖寄思</a >
+		<a href="live.html">云端追思</a >
+    </nav>
+</header>
+
+<main>
+
+<section class="hero">
+
+    <img
+        class="portrait"
+        src="img/IMG_20261025_200356.png"
+        alt="纪念肖像示例"
+    >
+
+    <div class="hero-text">
+
+        <div class="eyebrow">IN LOVING MEMORY</div>
+
+        <h1>张建国先生</h1>
+
+        <div class="dates">
+            1945.06.12 — 2024.06.16
+        </div>
+
+        <p class="intro">
+            民间纪实摄影师 · 乡土人文艺术创作者<br><br>
+
+            数十年行走乡野，以胶片镜头记录古村落、
+            民俗节庆、传统手艺与乡村变迁。<br>
+
+            他用影像留存乡土记忆，也用镜头为普通人
+            定格珍贵的生活瞬间。
+        </p >
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="section-title">
+        <h2>在记忆中重逢</h2>
+        <p>一生行走乡野，用镜头记录岁月</p >
+    </div>
+
+    <div class="features">
+
+        <a class="feature" href="gallery.html">
+            <div class="icon">▧</div>
+            <h3>光影画廊</h3>
+            <p>浏览乡土影像与摄影主题创作</p >
+        </a >
+			
+        <a class="feature" href="biography.html">
+            <div class="icon">▤</div>
+            <h3>岁月留痕</h3>
+            <p>了解人生经历与精神品格</p >
+        </a >
+
+        <a class="feature" href="messages.html">
+            <div class="icon">✉</div>
+            <h3>指尖寄思</h3>
+            <p>留下思念与温暖的纪念文字</p >
+        </a >
+			
+        <a class="feature" href="live.html">
+            <div class="icon">▧</div>
+            <h3>云端追思</h3>
+            <p>直播参与张建国先生祭奠仪式</p >
+        </a >
+			
+    </div>
+
+</section>
+
+<section class="section tribute">
+
+    <div class="section-title">
+        <h2>以文明的方式寄托思念</h2>
+        <p>每一份真挚的怀念，都值得被温柔珍藏</p >
+    </div>
+
+    <div class="actions">
+
+        <button class="action-button" onclick="offerFlower()">
+            ❀ 献上一束花
+        </button>
+
+        <button class="action-button" onclick="lightCandle()">
+            ♡ 点亮一盏灯
+        </button>
+
+        <button class="action-button"
+                onclick="location.href='messages.html'">
+            留下纪念
+        </button>
+
+    </div>
+
+    <div id="feedback" role="status"></div>
+
+</section>
+
+</main>
+
+<footer>
+    以镜为念，以影留乡<br>
+    张建国先生数字纪念馆 · 实训演示项目
+</footer>
+
+<script>
+function offerFlower() {
+    document.getElementById("feedback").textContent =
+        "❀ 已献上一束鲜花，愿思念长存。";
+}
+
+function lightCandle() {
+    document.getElementById("feedback").textContent =
+        "🕯 一盏心灯已点亮，寄托对逝者的怀念。";
+}
+</script>
+
+</body>
+</html>

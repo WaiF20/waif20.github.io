@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>指尖寄思 | 张建国先生数字纪念馆</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    background: #e9dfce;
+    color: #40382e;
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    padding: 20px 7%;
+    background: #292724;
+    color: #e8dfd0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: #c6a875;
+}
+
+.hero {
+    text-align: center;
+    padding: 55px 20px 35px;
+    background: #ddd0bb;
+}
+
+.hero h1 {
+    font-family: "SimSun", serif;
+    font-size: 34px;
+    font-weight: normal;
+}
+
+.hero p {
+    color: #786c5b;
+    margin-top: 8px;
+}
+
+.container {
+    max-width: 1000px;
+    padding: 40px 22px 70px;
+    margin: auto;
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+}
+
+.action-card {
+    padding: 28px 20px;
+    text-align: center;
+    background: #f5eee2;
+    border: 1px solid #d7c7af;
+}
+
+.icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.action-card h3 {
+    font-family: "SimSun", serif;
+    font-size: 21px;
+    font-weight: normal;
+}
+
+.action-card p {
+    color: #857766;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.action-card button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 17px;
+    border: 1px solid #78634d;
+    background: #78634d;
+    color: white;
+    cursor: pointer;
+}
+
+.action-card button:hover {
+    background: #5d4c3b;
+}
+
+#feedback {
+    text-align: center;
+    color: #78634d;
+    margin: 20px 0;
+    min-height: 26px;
+}
+
+.lights {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.light {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #d4c6ae;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+}
+
+.light.on {
+    background: #e5bd65;
+    box-shadow: 0 0 24px #e5bd6570;
+}
+
+h2 {
+    font-family: "SimSun", serif;
+    font-weight: normal;
+    font-size: 27px;
+}
+
+.messages-title {
+    margin: 55px 0 25px;
+}
+
+.message-form {
+    padding: 25px;
+    background: #f5eee2;
+    border: 1px solid #d7c7af;
+}
+
+input,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d2c4af;
+    background: white;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+input {
+    margin-bottom: 14px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #78634d;
+}
+
+.submit {
+    padding: 11px 26px;
+    background: #78634d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.submit:hover {
+    background: #5d4c3b;
+}
+
+.message-list {
+    margin-top: 25px;
+}
+
+.message-item {
+    padding: 22px;
+    background: #f5eee2;
+    border: 1px solid #d7c7af;
+    margin-bottom: 14px;
+    overflow-wrap: anywhere;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: #78634d;
+    font-size: 13px;
+}
+
+.message-content {
+    margin-top: 12px;
+    white-space: pre-wrap;
+}
+
+.empty {
+    color: #857766;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #292724;
+    color: #b6aa98;
+    font-size: 12px;
+}
+
+@media(max-width:700px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .actions {
+        grid-template-columns: 1fr;
+    }
+
+    .message-header {
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .container {
+        padding: 30px 15px 50px;
+    }
+
+    .message-form {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">张建国先生 · 指尖寄思</div>
+
+    <nav>
+        <a href=" ">纪念馆首页</a >
+        <a href="gallery.html">光影画廊</a >
+        <a href="biography.html">岁月留痕</a >
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>指尖寄思</h1>
+    <p>让思念跨越距离，让记忆温暖如初</p >
+</section>
+
+<main class="container">
+
+    <section class="actions">
+
+        <article class="action-card">
+            <div class="icon">🌼</div>
+            <h3>云端献花</h3>
+            <p>以一束鲜花，寄托心中的思念。</p >
+            <button id="flowerBtn">献上一束花</button>
+        </article>
+
+        <article class="action-card">
+            <div class="icon">🕯️</div>
+            <h3>点亮心灯</h3>
+            <p>点亮一盏灯，留下一份温暖。</p >
+            <button id="lightBtn">点亮纪念灯</button>
+        </article>
+
+        <article class="action-card">
+            <div class="icon">✉</div>
+            <h3>写下思念</h3>
+            <p>让未曾说出口的话，化作温柔的文字。</p >
+            <button id="writeBtn">留下纪念</button>
+        </article>
+
+    </section>
+
+    <div id="feedback" role="status"></div>
+
+    <h2>温暖的纪念</h2>
+
+    <div class="lights" id="lights"></div>
+
+    <h2 class="messages-title" id="messageFormTitle">
+        留下一段思念
+    </h2>
+
+    <form class="message-form" id="messageForm">
+
+        <input
+            id="name"
+            type="text"
+            maxlength="30"
+            placeholder="您的称呼（选填）"
+        >
+
+        <textarea
+            id="content"
+            maxlength="500"
+            placeholder="写下您想说的话……"
+            required
+        ></textarea>
+
+        <button class="submit" type="submit">
+            提交留言
+        </button>
+
+    </form>
+
+    <h2 class="messages-title">亲友留言</h2>
+
+    <div class="message-list" id="messageList"></div>
+
+</main>
+
+<footer>
+    以镜为念，以影留乡<br>
+    张建国先生数字纪念馆 · 实训演示项目
+</footer>
+
+<script>
+const STORAGE_KEY = "zhangJianguoDemoMessages";
+const FLOWER_KEY = "zhangJianguoDemoFlowers";
+const LIGHT_KEY = "zhangJianguoDemoLights";
+
+const feedback = document.getElementById("feedback");
+const lightsContainer = document.getElementById("lights");
+const messageList = document.getElementById("messageList");
+
+function readNumber(key) {
+    try {
+        const value = Number(localStorage.getItem(key) || 0);
+        return Number.isFinite(value)
+            ? Math.max(0, Math.min(value, 1000))
+            : 0;
+    } catch {
+        return 0;
+    }
+}
+
+function saveNumber(key, value) {
+    try {
+        localStorage.setItem(key, String(value));
+    } catch {
+        feedback.textContent =
+            "当前浏览器无法保存数据，请检查浏览器存储设置。";
+    }
+}
+
+function updateLights() {
+    const count = readNumber(LIGHT_KEY);
+
+    lightsContainer.replaceChildren();
+
+    const visibleCount = Math.min(count, 30);
+
+    for (let i = 0; i < visibleCount; i++) {
+        const light = document.createElement("div");
+        light.className = "light on";
+        light.textContent = "✦";
+        lightsContainer.appendChild(light);
+    }
+
+    if (count === 0) {
+        const empty = document.createElement("p");
+        empty.className = "empty";
+        empty.textContent = "点亮一盏心灯，让思念在这里停留。";
+        lightsContainer.appendChild(empty);
+    }
+}
+
+document.getElementById("flowerBtn").addEventListener("click", () => {
+    const count = readNumber(FLOWER_KEY);
+
+    if (count >= 1000) {
+        feedback.textContent = "感谢您的心意，演示次数已达上限。";
+        return;
+    }
+
+    saveNumber(FLOWER_KEY, count + 1);
+
+    feedback.textContent =
+        "🌼 已献上一束鲜花，感谢您留下这份温暖。";
+});
+
+document.getElementById("lightBtn").addEventListener("click", () => {
+    const count = readNumber(LIGHT_KEY);
+
+    if (count >= 1000) {
+        feedback.textContent = "感谢您的心意，演示次数已达上限。";
+        return;
+    }
+
+    saveNumber(LIGHT_KEY, count + 1);
+
+    updateLights();
+
+    feedback.textContent =
+        "🕯️ 一盏心灯已点亮，愿记忆长存。";
+});
+
+document.getElementById("writeBtn").addEventListener("click", () => {
+    document.getElementById("messageFormTitle")
+        .scrollIntoView({ behavior: "smooth" });
+
+    document.getElementById("content").focus();
+});
+
+function loadMessages() {
+    let messages = [];
+
+    try {
+        const stored = JSON.parse(
+            localStorage.getItem(STORAGE_KEY) || "[]"
+        );
+
+        if (Array.isArray(stored)) {
+            messages = stored;
+        }
+    } catch {
+        messages = [];
+    }
+
+    messageList.replaceChildren();
+
+    if (messages.length === 0) {
+        const empty = document.createElement("p");
+        empty.className = "empty";
+        empty.textContent = "这里还没有留言，欢迎留下第一份思念。";
+        messageList.appendChild(empty);
+        return;
+    }
+
+    messages.forEach(message => {
+        const item = document.createElement("article");
+        item.className = "message-item";
+
+        const header = document.createElement("div");
+        header.className = "message-header";
+
+        const name = document.createElement("span");
+        name.textContent = message.name || "一位亲友";
+
+        const time = document.createElement("time");
+        time.textContent = message.time;
+
+        header.append(name, time);
+
+        const content = document.createElement("p");
+        content.className = "message-content";
+
+        // 使用 textContent，避免把用户输入当成 HTML 执行。
+        content.textContent = message.content;
+
+        item.append(header, content);
+        messageList.appendChild(item);
+    });
+}
+
+document.getElementById("messageForm")
+    .addEventListener("submit", event => {
+        event.preventDefault();
+
+        const name = document.getElementById("name")
+            .value.trim();
+
+        const content = document.getElementById("content")
+            .value.trim();
+
+        if (!content) {
+            feedback.textContent = "请先填写留言内容。";
+            return;
+        }
+
+        let messages = [];
+
+        try {
+            const stored = JSON.parse(
+                localStorage.getItem(STORAGE_KEY) || "[]"
+            );
+
+            if (Array.isArray(stored)) {
+                messages = stored;
+            }
+        } catch {
+            messages = [];
+        }
+
+        if (messages.length >= 100) {
+            feedback.textContent =
+                "当前演示留言数量已达上限。";
+            return;
+        }
+
+        messages.unshift({
+            name: name || "一位亲友",
+            content: content,
+            time: new Date().toLocaleString("zh-CN")
+        });
+
+        try {
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(messages)
+            );
+        } catch {
+            feedback.textContent =
+                "留言保存失败，请检查浏览器存储设置。";
+            return;
+        }
+
+        document.getElementById("messageForm").reset();
+
+        feedback.textContent = "留言已保存，感谢您留下思念。";
+
+        loadMessages();
+    });
+
+updateLights();
+loadMessages();
+</script>
+
+</body>
+</html>
